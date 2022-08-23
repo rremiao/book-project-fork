@@ -26,6 +26,12 @@ Book tracker web app made with Spring Boot and React (Typescript).
 
 *The image above is from our mockup designs, so this may look slightly different to the app. If major changes are made, we will upload a new image.*
 
+# Technologies
+![react_logo](https://user-images.githubusercontent.com/28985189/186284013-6d5aef92-495f-4a36-8422-6f03981387de.png)
+![spring_logo](https://user-images.githubusercontent.com/28985189/186284194-1c300402-c3da-4bdd-a75c-b474857c792b.png)
+
+
+
 # Getting started locally
 
 Prerequisites:
