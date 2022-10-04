@@ -27,8 +27,26 @@ Book tracker web app made with Spring Boot and React (Typescript).
 *The image above is from our mockup designs, so this may look slightly different to the app. If major changes are made, we will upload a new image.*
 
 # Technologies
-![react_logo](https://user-images.githubusercontent.com/28985189/186284013-6d5aef92-495f-4a36-8422-6f03981387de.png)
-![spring_logo](https://user-images.githubusercontent.com/28985189/186284194-1c300402-c3da-4bdd-a75c-b474857c792b.png)
+<div align="center">
+<a href="https://www.javascript.com/">
+<img src="https://user-images.githubusercontent.com/28985189/193945485-e535fbbb-09dd-41fa-9425-897d7e5dee45.png" height="55" width="55" />
+</a>
+<a href="https://reactjs.org/">
+<img src="https://user-images.githubusercontent.com/28985189/186284013-6d5aef92-495f-4a36-8422-6f03981387de.png" height="55" width="55" alt="react" /> 
+</a>
+<a href="https://www.java.com/">
+<img src="https://user-images.githubusercontent.com/28985189/193944764-bc525844-cad6-414a-a704-96adea5d51eb.png" height="55" width="55" />
+</a>
+<a href="https://spring.io/">
+<img src="https://user-images.githubusercontent.com/28985189/186284194-1c300402-c3da-4bdd-a75c-b474857c792b.png" width="100" alt="spring" />
+</a>
+<a href="https://www.sonarqube.org/">
+<img src="https://www.sonarqube.org/logos/index/sonarqube-logo@2x.png" alt="sonarqube" width="100" />
+</a>
+<a href="https://www.postgresql.org/">
+<img src="https://user-images.githubusercontent.com/28985189/193945168-4f85c9f6-2f84-492f-9870-3310afcbc5dd.png" width="60" />
+</a>
+</div>
 
 
 
