@@ -14,7 +14,6 @@
 
 package com.karankumar.bookproject.account.controller;
 
-import com.karankumar.bookproject.account.controller.UserController;
 import com.karankumar.bookproject.account.dto.UserToRegisterDto;
 import com.karankumar.bookproject.account.exception.CurrentUserNotFoundException;
 import com.karankumar.bookproject.account.exception.PasswordTooWeakException;
