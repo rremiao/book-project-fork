@@ -19,12 +19,10 @@ package com.karankumar.bookproject.book.model;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.karankumar.bookproject.ExcludeFromJacocoGeneratedReport;
-import lombok.extern.java.Log;
 
 import java.util.Arrays;
 import java.util.Optional;
 
-@Log
 @ExcludeFromJacocoGeneratedReport
 public enum RatingScale {
   NO_RATING("No rating", null),
@@ -78,5 +76,9 @@ public enum RatingScale {
         .filter(ratingScale -> ratingScale.value != null)
         .filter(ratingScale -> ratingScale.value.doubleValue() == ratingValue.doubleValue())
         .findFirst();
+  }
+
+  public Double getValue() {
+    return this.value;
   }
 }

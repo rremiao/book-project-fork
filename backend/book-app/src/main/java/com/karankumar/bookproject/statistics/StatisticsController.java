@@ -56,19 +56,19 @@ public class StatisticsController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(Endpoints.MOST_LIKED_GENRE)
-    public void mostLikedGenre() {
-        
+    public BookGenre mostLikedGenre() {
+        return statisticsService.mostLikedGenre();
     }
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(Endpoints.AVERAGE_RATING_READ)
-    public void averageRatingRead() {
-        
+    public Double averageRatingRead() {
+        return statisticsService.averageRatingRead();
     }
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(Endpoints.AVERAGE_PAGE_LENGTH)
-    public void averagePageLength() {
-        
+    public Double averagePageLength() {
+        return statisticsService.averagePageLenth();
     }    
 }

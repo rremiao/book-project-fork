@@ -1,12 +1,13 @@
 package com.karankumar.bookproject.statistics;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
-
-
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.BinaryOperator;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,20 +25,23 @@ public class StatisticsService {
     BookRepository bookRepository;
 
     @Autowired
+    RatingStatistics ratingStatistics;
+
+    @Autowired
     ModelMapper mapper;
 
     public BookDto mostLikedBook() {
-        List<Book> allBooks = bookRepository.findAll();
+        Optional<Book> book = ratingStatistics.findMostLikedBook();
 
-        Book book = allBooks.get(0);
+        if(!book.isPresent()) return null;
 
         return mapper.map(book, BookDto.class);
     }
 
     public BookDto leastLikedBook() {
-        List<Book> allBooks = bookRepository.findAll();
+        Optional<Book> book = ratingStatistics.findLeastLikedBook();
 
-        Book book = allBooks.get(0);
+        if(!book.isPresent()) return null;
 
         return mapper.map(book, BookDto.class);
     }
@@ -45,7 +49,7 @@ public class StatisticsService {
     public BookDto longestReadBook() {
         List<Book> allBooks = bookRepository.findAll();
 
-        Book book = allBooks.get(0);
+        Book book = allBooks.stream().sorted(Comparator.comparing(Book::getPagesRead)).findFirst().get();
 
         return mapper.map(book, BookDto.class);
     }
@@ -63,5 +67,33 @@ public class StatisticsService {
                         -> Collections.frequency(bookGenres, o1) - Collections.frequency(bookGenres, o2)))
                         .orElse(null);       
         
+    }
+
+    public BookGenre mostLikedGenre() {
+        List<Book> allBooks = bookRepository.findAll();
+        Set<BookGenre> bookGenres = new HashSet<>();
+
+        allBooks = allBooks.stream().sorted(Comparator.comparing(Book::getRating)).collect(Collectors.toList());
+
+        for(Book book : allBooks) {
+            bookGenres.addAll(book.getBookGenre());
+        }
+
+        return bookGenres.stream()
+                         .reduce(BinaryOperator.maxBy((o1, o2) 
+                         -> Collections.frequency(bookGenres, o1) - Collections.frequency(bookGenres, o2)))
+                         .orElse(null);      
+    }
+
+    public Double averageRatingRead() {
+        List<Book> allBooks = bookRepository.findAll();
+
+        return allBooks.stream().collect(Collectors.averagingDouble(p -> p.getRating().getValue()));
+    }
+
+    public Double averagePageLenth() {
+        List<Book> allBooks = bookRepository.findAll();
+
+        return allBooks.stream().filter(x -> x.getRating() != null).collect(Collectors.averagingDouble(Book::getNumberOfPages));
     }
 }
