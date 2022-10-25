@@ -67,7 +67,7 @@ class UserCreatedShelfRepositoryTest {
 
   @Test
   @Disabled
-  // TODO: fix failing test
+
   void findCorrectShelf() {
     Optional<UserCreatedShelf> shelf = underTest.findByShelfNameAndUser(CUSTOM_SHELF_NAME, user);
     assertThat(shelf).isPresent();
@@ -82,7 +82,7 @@ class UserCreatedShelfRepositoryTest {
   @Test
   @DisplayName("findByShelfNameAndUser correctly returns null if shelf doesn't exist")
   @Disabled
-  // TODO: fix failing test
+
   void findByShelfNameAndUserReturnsNull() {
     // given
     underTest.deleteAll();
@@ -97,7 +97,7 @@ class UserCreatedShelfRepositoryTest {
   @Test
   @DisplayName("findAllByUser correctly returns shelves for a user")
   @Disabled
-  // TODO: fix failing test
+
   void findAllByUser() {
     List<UserCreatedShelf> shelves = underTest.findAllByUser(user);
     assertThat(shelves).isNotNull().isNotEmpty();
@@ -112,7 +112,7 @@ class UserCreatedShelfRepositoryTest {
   @Test
   @DisplayName("findAllByUser correctly returns empty list for a user")
   @Disabled
-  // TODO: fix failing test
+
   void findAllByUserIsEmpty() {
     // given
     underTest.deleteAll();
@@ -127,7 +127,7 @@ class UserCreatedShelfRepositoryTest {
   @ParameterizedTest
   @MethodSource("provideExistingUserCreatedShelfNames")
   @Disabled
-  // TODO: fix failing test
+
   void returnTrueWhenUserCreatedShelfNameExists(String existingShelfName) {
     assertThat(underTest.shelfNameExists(existingShelfName)).isTrue();
   }
@@ -142,7 +142,7 @@ class UserCreatedShelfRepositoryTest {
 
   @Test
   @Disabled
-  // TODO: fix failing test
+
   void returnFalseWhenUserCreatedShelfNameNotExists() {
     assertThat(underTest.shelfNameExists("NotExistingShelfName")).isFalse();
   }

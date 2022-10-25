@@ -35,7 +35,6 @@ public class ImportServiceDelegate {
   }
 
   public void importFromGoodreads() {
-    // TODO: Pass data from endpoint
     goodreadsBookImportService.importGoodreadsBooks(emptyList());
   }
 }

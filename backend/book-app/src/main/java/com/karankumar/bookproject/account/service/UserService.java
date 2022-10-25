@@ -133,7 +133,6 @@ public class UserService {
         .orElseThrow(() -> new CurrentUserNotFoundException("Current user could not be found"));
   }
 
-  // TODO: this can be removed once we are no longer populating test data
   public List<User> findAll() {
     return userRepository.findAll();
   }
@@ -225,14 +224,12 @@ public class UserService {
   public void deleteUserById(@NonNull Long id) {
     Optional<User> user = userRepository.findById(id);
     if (user.isPresent()) {
-      // TODO: make the temporal coupling explicit -- this needs to be called before
       // bookRepository.deleteAll()
       removePredefinedShelfFromUserBooks();
 
       bookRepository.deleteAll();
       userRepository.deleteById(id);
     } else {
-      // TODO: throw custom exception.
       throw new ResponseStatusException(
           HttpStatus.NOT_FOUND, String.format(USER_NOT_FOUND_ERROR_MESSAGE, id));
     }

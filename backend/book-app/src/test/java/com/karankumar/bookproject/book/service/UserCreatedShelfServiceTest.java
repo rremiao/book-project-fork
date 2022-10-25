@@ -68,7 +68,7 @@ class UserCreatedShelfServiceTest {
   }
 
   @Test
-  // TODO: fix
+
   @Disabled
   void canFindAllForLoggedInUser() {
     userCreatedShelfService.findAllForLoggedInUser();
@@ -76,7 +76,7 @@ class UserCreatedShelfServiceTest {
   }
 
   @Test
-  // TODO: fix
+
   @Disabled
   void findByShelfNameAndLoggedInUser_throwsException_IfShelfNameIsNull() {
     assertThatExceptionOfType(NullPointerException.class)

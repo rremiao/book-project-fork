@@ -42,7 +42,7 @@ import static org.assertj.core.api.SoftAssertions.assertSoftly;
 @DataJpaIntegrationTest
 @DisplayName("PredefinedShelfRepository should")
 @Disabled
-// TODO: fix failing test
+
 class PredefinedShelfRepositoryTest {
   private final UserRepository userRepository;
   private final PredefinedShelfRepository repository;

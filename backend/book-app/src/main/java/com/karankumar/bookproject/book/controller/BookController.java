@@ -87,7 +87,6 @@ public class BookController {
                   optionalShelfName.get());
 
           if (optionalPredefinedShelf.isEmpty()) {
-            // TODO: throw custom exception
             throw new IllegalStateException();
           }
 
@@ -110,7 +109,6 @@ public class BookController {
       };
 
   @GetMapping()
-  // TODO: only retrieve books that belong to the logged in user
   public List<Book> all(@RequestParam(required = false) Integer page) {
     if (page == null || page >= 0) {
       return bookService.findAll(page);
@@ -126,7 +124,6 @@ public class BookController {
   }
 
   @GetMapping("/{id}")
-  // TODO: only retrieve books that belong to the logged in user
   public Book findById(@PathVariable Long id) {
     return bookService
         .findById(id)
@@ -140,7 +137,6 @@ public class BookController {
   @ResponseStatus(HttpStatus.CREATED)
   public Optional<Book> addBook(@RequestBody BookDto bookDto) {
     Book bookToAdd = convertToBook(bookDto);
-    // TODO: check whether the book to save has a title, an author and a predefined shelf. If not,
     // throw a 400-level exception
     return bookService.save(bookToAdd);
   }

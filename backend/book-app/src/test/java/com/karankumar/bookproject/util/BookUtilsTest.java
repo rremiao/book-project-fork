@@ -35,7 +35,6 @@ class BookUtilsTest {
 
   @Autowired
   BookUtilsTest(PredefinedShelfService predefinedShelfService) {
-    // TODO: mock predefinedShelfService
     book = new Book(bookTitle, null, predefinedShelfService.findById(1L).get());
   }
 

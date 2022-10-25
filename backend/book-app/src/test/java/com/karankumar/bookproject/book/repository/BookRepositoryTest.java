@@ -115,7 +115,7 @@ class BookRepositoryTest {
   }
 
   @Test
-  @Disabled // TODO: re-enable. This is disabled until implemented
+  @Disabled
   void allBooksFoundWhenNoFilterPassed() {
     // given
     int allBooks = bookRepository.findAll().size();
@@ -129,7 +129,7 @@ class BookRepositoryTest {
   }
 
   @Test
-  @Disabled // TODO: re-enable. This is disabled until implemented
+  @Disabled
   void canFindBookByTitleOrAuthor() {
     // given
     String title = "title";
@@ -142,7 +142,7 @@ class BookRepositoryTest {
   }
 
   @Test
-  @Disabled // TODO: re-enable. This is disabled until implemented
+  @Disabled
   void canFindBookByAuthor() {
     String firstName = "firstName";
     String lastName = "lastName";

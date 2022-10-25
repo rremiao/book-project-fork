@@ -35,25 +35,21 @@ public class PredefinedShelfController {
   }
 
   @GetMapping(path = "/to-read")
-  // TODO: only retrieve books that belong to the logged in user
   public List<Book> getAllToReadBooks() {
     return bookService.findAllBooksByPredefinedShelfName(ShelfName.TO_READ);
   }
 
   @GetMapping(path = "/reading")
-  // TODO: only retrieve books that belong to the logged in user
   public List<Book> getAllReadingBooks() {
     return bookService.findAllBooksByPredefinedShelfName(ShelfName.READING);
   }
 
   @GetMapping(path = "/read")
-  // TODO: only retrieve books that belong to the logged in user
   public List<Book> getAllReadBooks() {
     return bookService.findAllBooksByPredefinedShelfName(ShelfName.READ);
   }
 
   @GetMapping(path = "/did-not-finish")
-  // TODO: only retrieve books that belong to the logged in user
   public List<Book> getAllDidNotFinishBooks() {
     return bookService.findAllBooksByPredefinedShelfName(ShelfName.DID_NOT_FINISH);
   }

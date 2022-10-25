@@ -100,7 +100,6 @@ class GenreStatisticsTest {
   @Test
   @DisplayName("not show the most liked genre statistic if there is only one read genre")
   @Disabled
-  // TODO: this test has been disabled as it needs to be rewritten to make it easier to follow
   void notShowMostLikedGenreWhenOnlyOneReadGenreExists() {
     // given
     resetBookService();
@@ -121,7 +120,6 @@ class GenreStatisticsTest {
   @Test
   @DisplayName("not show the least liked genre statistic if there is only one read genre")
   @Disabled
-  // TODO: this test has been disabled as it needs to be rewritten to make it easier to follow
   void notShowLeastLikedGenreWhenOnlyOneReadGenreExists() {
     // given
     resetBookService();

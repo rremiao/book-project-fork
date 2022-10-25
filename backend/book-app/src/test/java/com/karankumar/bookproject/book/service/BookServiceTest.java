@@ -91,7 +91,7 @@ class BookServiceTest {
   }
 
   @Test
-  // TODO: fix test
+
   @Disabled
   void canSaveIfBookHasAuthorAndPredefinedShelf() {
     // given

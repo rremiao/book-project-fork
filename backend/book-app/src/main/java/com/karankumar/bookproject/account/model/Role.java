@@ -44,7 +44,6 @@ public class Role {
   @Setter(AccessLevel.NONE)
   private Long id;
 
-  // TODO: use RoleType here instead
   @NotBlank private String role;
 
   public Role(@NonNull String role) {

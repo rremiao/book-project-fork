@@ -110,7 +110,6 @@ class BookControllerTest {
   }
 
   @Test
-  // TODO: finish writing this test
   void findByShelf_returnsNotFound_ifBookDoesNotExist() {
     //        when(mockedBookService.findByShelfAndTitleOrAuthor(
     //                any(Shelf.class),
