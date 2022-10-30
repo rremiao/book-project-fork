@@ -17,21 +17,13 @@ public class FakeEmailService implements EmailService {
 
   @Override
   public void sendSimpleMessage(String from, String to, String message) {
-    LOGGER.info("[Mail] email sent to -> {}", to);
-    System.out.println(
-        "----------------------------------------- Simple Message Mail Sent -----------------------------------------");
-    System.out.println("From: " + from);
-    System.out.println("To: " + to);
-    System.out.println("Message: " + message);
+    LOGGER.info("[Mail] email sent to -> {}  From: {} To: {} Message: {}", to, from, to, message);
   }
 
   @Override
   public void sendMessageUsingThymeleafTemplate(
       String to, String subject, Map<String, Object> templateModel) {
-    LOGGER.info("[Mail] email sent to -> {}", to);
-    System.out.println(
-        "----------------------------------------- Send Message with thymleaf -----------------------------------------");
-    System.out.println("To: " + to);
-    System.out.println("Subject: " + subject);
+        LOGGER.info("[Mail] email sent to -> {} To: {} Message: {}", to,  to, subject);
+
   }
 }
