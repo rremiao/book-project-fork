@@ -17,6 +17,7 @@ import com.karankumar.bookproject.book.dto.BookDto;
 import com.karankumar.bookproject.book.model.Book;
 import com.karankumar.bookproject.book.model.BookGenre;
 import com.karankumar.bookproject.book.repository.BookRepository;
+import com.karankumar.bookproject.statistics.RatingStatistics;
 
 @Service
 public class StatisticsService {
