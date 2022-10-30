@@ -69,7 +69,6 @@ public class BookService {
 
   public Optional<Book> findById(@NonNull Long id) {
     return bookRepository.findBookById(id);
-    //        return bookRepository.findById(id);
   }
 
   public Optional<Book> save(@NonNull Book book) {
@@ -160,12 +159,10 @@ public class BookService {
 
   public List<Book> findByShelfAndTitleOrAuthor(Shelf shelf, String title, String authorsName) {
     throw new NotImplementedException();
-    //        return bookRepository.findByShelfAndTitleOrAuthor(shelf, title, authorsName);
   }
 
   public List<Book> findByTitleOrAuthor(String title, String authorsName) {
     throw new NotImplementedException();
-    //        return bookRepository.findByTitleOrAuthor(title, authorsName);
   }
 
   public List<Book> findAllBooksByPredefinedShelfName(ShelfName predefinedShelfName) {
