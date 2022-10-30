@@ -17,7 +17,6 @@
 
 package com.karankumar.bookproject.goal;
 
-import com.karankumar.bookproject.goal.ReadingGoal;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ReadingGoalRepository extends JpaRepository<ReadingGoal, Long> {}

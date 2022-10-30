@@ -17,8 +17,6 @@
 
 package com.karankumar.bookproject.goal;
 
-import com.karankumar.bookproject.goal.ReadingGoal;
-import com.karankumar.bookproject.goal.ReadingGoalRepository;
 import lombok.NonNull;
 import org.springframework.stereotype.Service;
 
