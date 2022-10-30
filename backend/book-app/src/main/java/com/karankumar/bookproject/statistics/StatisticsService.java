@@ -25,7 +25,6 @@ public class StatisticsService {
     @Autowired
     BookRepository bookRepository;
 
-    @Autowired
     RatingStatistics ratingStatistics;
 
     @Autowired
