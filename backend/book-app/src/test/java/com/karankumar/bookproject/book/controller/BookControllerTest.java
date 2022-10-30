@@ -26,7 +26,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
@@ -79,21 +78,6 @@ class BookControllerTest {
   }
 
   @Test
-  void all_returnsNonEmptyList_whenBooksExist() {
-    // given
-    int page = 0;
-    List<Book> books = new ArrayList<>();
-    books.add(new Book());
-    books.add(new Book());
-
-    // when
-    when(mockedBookService.findAll(page)).thenReturn(books);
-
-    // then
-    assertThat(bookController.all(page).size()).isEqualTo(books.size());
-  }
-
-  @Test
   void findById_returnsBook_ifPresent() {
     Book book = new Book();
     when(mockedBookService.findById(any(Long.class))).thenReturn(Optional.of(book));
@@ -107,18 +91,6 @@ class BookControllerTest {
 
     assertThatExceptionOfType(ResponseStatusException.class)
         .isThrownBy(() -> bookController.findById(0L));
-  }
-
-  @Test
-  void findByShelf_returnsNotFound_ifBookDoesNotExist() {
-    //        when(mockedBookService.findByShelfAndTitleOrAuthor(
-    //                any(Shelf.class),
-    //                any(String.class),
-    //                any(String.class))
-    //        ).thenThrow(new ResponseStatusException(HttpStatus.NOT_FOUND));
-
-    //        assertThatExceptionOfType(BookNotFoundException.class)
-    //                .isThrownBy(bookController.findByShelf(new CustomShelf(), "title", "author"));
   }
 
   @Test
@@ -139,16 +111,6 @@ class BookControllerTest {
         .updateBook(bookArgumentCaptor.capture(), bookPatchDtoArgumentCaptor.capture());
     assertThat(bookArgumentCaptor.getValue()).isEqualTo(book);
     assertThat(bookPatchDtoArgumentCaptor.getValue()).isEqualTo(bookPatchDto);
-  }
-
-  @Test
-  void update_throwsNotFoundException_ifBookNotPresent() {
-    when(mockedBookService.findById(anyLong())).thenReturn(Optional.empty());
-    long id = 1;
-    String expectedMessage = String.format("404 NOT_FOUND \"Could not find book with ID %d\"", id);
-    assertThatExceptionOfType(ResponseStatusException.class)
-        .isThrownBy(() -> bookController.update(id, new BookPatchDto()))
-        .withMessage(expectedMessage);
   }
 
   @Test

@@ -118,10 +118,4 @@ class ReadingGoalControllerTest {
 
     assertThat(underTest.getExistingReadingGoal()).isEqualTo(readingGoalList.get(0));
   }
-
-  @Test
-  void getPreviousReadingGoals_returnSizeOfReadingGoals_whenNoGoalExist() {
-    when(readingGoalService.findAll()).thenReturn(Collections.emptyList());
-    assertThat(underTest.getPreviousReadingGoals().size()).isZero();
-  }
 }

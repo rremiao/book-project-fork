@@ -17,17 +17,14 @@
 
 package com.karankumar.bookproject.book.service;
 
-import com.karankumar.bookproject.book.model.Author;
 import com.karankumar.bookproject.book.model.Book;
 import com.karankumar.bookproject.shelf.model.PredefinedShelf;
 import com.karankumar.bookproject.account.model.User;
 import com.karankumar.bookproject.book.repository.BookRepository;
 import com.karankumar.bookproject.shelf.service.PredefinedShelfService;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.domain.Pageable;
@@ -90,26 +87,6 @@ class BookServiceTest {
     verify(bookRepository, never()).save(book);
   }
 
-  @Test
-
-  @Disabled
-  void canSaveIfBookHasAuthorAndPredefinedShelf() {
-    // given
-    User user = User.builder().build();
-    PredefinedShelf predefinedShelf = new PredefinedShelf(PredefinedShelf.ShelfName.READ, user);
-    Book book = new Book("title", new Author("test"), predefinedShelf);
-
-    // when
-    Optional<Book> actual = bookService.save(book);
-
-    // then
-    assertThat(actual).isNotEmpty();
-
-    ArgumentCaptor<Book> bookArgumentCaptor = ArgumentCaptor.forClass(Book.class);
-    verify(bookRepository).save(bookArgumentCaptor.capture());
-    Book capturedBook = bookArgumentCaptor.capture();
-    assertThat(capturedBook).isEqualTo(book);
-  }
 
   @Test
   void canCount() {

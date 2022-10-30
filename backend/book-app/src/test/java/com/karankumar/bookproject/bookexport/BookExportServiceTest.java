@@ -26,7 +26,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
 import static org.assertj.core.api.SoftAssertions.assertSoftly;
-import static org.mockito.Mockito.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -42,7 +41,7 @@ class BookExportServiceTest {
     // given
     User user = mock(User.class);
     Book book = mock(Book.class);
-    when(bookRepository.findAllBooksForUser(eq(user))).thenReturn(singletonList(book));
+    when(bookRepository.findAllBooksForUser(user)).thenReturn(singletonList(book));
 
     // when
     ExportDto booksData = bookExportService.exportBooksData(user);
@@ -60,7 +59,7 @@ class BookExportServiceTest {
   void returnEmpty_whenNoBooksForUser() {
     // given
     User user = mock(User.class);
-    when(bookRepository.findAllBooksForUser(eq(user))).thenReturn(emptyList());
+    when(bookRepository.findAllBooksForUser(user)).thenReturn(emptyList());
 
     // when
     ExportDto booksData = bookExportService.exportBooksData(user);

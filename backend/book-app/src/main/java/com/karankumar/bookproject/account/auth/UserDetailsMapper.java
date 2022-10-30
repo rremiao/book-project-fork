@@ -36,7 +36,7 @@ public class UserDetailsMapper {
         true,
         !user.isLocked(),
         user.getRoles().stream()
-            .map(role -> new SimpleGrantedAuthority(role.getRole()))
+            .map(role -> new SimpleGrantedAuthority(role.getRolePlayed()))
             .collect(toUnmodifiableList()));
   }
 }

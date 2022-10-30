@@ -64,7 +64,7 @@ public class JwtUsernamePasswordAuthFilter extends UsernamePasswordAuthenticatio
               authenticationRequest.getUsername(), authenticationRequest.getPassword());
       return authenticationManager.authenticate(authentication);
     } catch (LockedException e) {
-      handleLockedException(request, response, e);
+      handleLockedException(response, e);
       return null;
     } catch (IOException e) {
       throw new RuntimeException(e);
@@ -85,8 +85,7 @@ public class JwtUsernamePasswordAuthFilter extends UsernamePasswordAuthenticatio
     response.addHeader(jwtConfig.getAuthorizationHeader(), jwtConfig.getTokenPrefix() + token);
   }
 
-  private void handleLockedException(
-      HttpServletRequest request, HttpServletResponse response, LockedException e) {
+  private void handleLockedException(HttpServletResponse response, LockedException e) {
     try {
       HttpStatus status = HttpStatus.FORBIDDEN;
 

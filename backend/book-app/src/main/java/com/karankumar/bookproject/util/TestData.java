@@ -57,9 +57,9 @@ public final class TestData {
             "Robert Galbraith",
             "Dan Brown")
         .map(
-            name -> {
-              return new Author(name);
-            })
+            name ->
+              new Author(name)
+            )
         .collect(Collectors.toList());
   }
 

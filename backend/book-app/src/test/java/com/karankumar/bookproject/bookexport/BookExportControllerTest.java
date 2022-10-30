@@ -23,7 +23,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -41,7 +40,7 @@ class BookExportControllerTest {
     User currentUser = mock(User.class);
     ExportDto mockExportData = mock(ExportDto.class);
     when(userService.getCurrentUser()).thenReturn(currentUser);
-    when(bookExportService.exportBooksData(eq(currentUser))).thenReturn(mockExportData);
+    when(bookExportService.exportBooksData(currentUser)).thenReturn(mockExportData);
 
     // when
     ExportDto actualExportData = bookExportController.exportBooksData();

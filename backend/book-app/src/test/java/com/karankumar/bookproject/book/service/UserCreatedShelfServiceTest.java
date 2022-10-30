@@ -24,7 +24,6 @@ import com.karankumar.bookproject.account.model.User;
 import com.karankumar.bookproject.shelf.repository.UserCreatedShelfRepository;
 import com.karankumar.bookproject.shelf.service.UserCreatedShelfService;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -67,22 +66,6 @@ class UserCreatedShelfServiceTest {
     verify(userCreatedShelfRepository).findById(anyLong());
   }
 
-  @Test
-
-  @Disabled
-  void canFindAllForLoggedInUser() {
-    userCreatedShelfService.findAllForLoggedInUser();
-    verify(userCreatedShelfRepository).findAllByUser(any(User.class));
-  }
-
-  @Test
-
-  @Disabled
-  void findByShelfNameAndLoggedInUser_throwsException_IfShelfNameIsNull() {
-    assertThatExceptionOfType(NullPointerException.class)
-        .isThrownBy(() -> userCreatedShelfService.findByShelfNameAndLoggedInUser(null));
-    verify(userCreatedShelfRepository).findByShelfNameAndUser(anyString(), any());
-  }
 
   @Test
   void save_throwsException_ifShelfIsNull() {

@@ -47,10 +47,10 @@ public class GenreStatistics extends Statistics {
   public Optional<BookGenre> findMostReadGenre() {
     EnumMap<BookGenre, Integer> genresReadCount = countGenreReadOccurrences();
     BookGenre mostReadBookGenre = null;
-    for (BookGenre bookGenre : genresReadCount.keySet()) {
-      int genreCount = genresReadCount.get(bookGenre);
+    for (Map.Entry<BookGenre,Integer> bookGenre : genresReadCount.entrySet()) {
+      int genreCount = genresReadCount.get(bookGenre.getKey());
       if (isGenreTheMostRead(genreCount, mostReadBookGenre, genresReadCount)) {
-        mostReadBookGenre = bookGenre;
+        mostReadBookGenre = bookGenre.getKey();
       }
     }
     return Optional.ofNullable(mostReadBookGenre);
@@ -72,8 +72,8 @@ public class GenreStatistics extends Statistics {
 
   private EnumMap<BookGenre, Integer> countGenreReadOccurrences() {
     EnumMap<BookGenre, Integer> genresReadCount = populateEmptyGenreCount();
-    for (BookGenre bookGenre : genresReadCount.keySet()) {
-      genresReadCount.replace(bookGenre, Collections.frequency(genresRead(), bookGenre));
+    for (Map.Entry<BookGenre,Integer> bookGenre : genresReadCount.entrySet()) {
+      genresReadCount.replace(bookGenre.getKey(), Collections.frequency(genresRead(), bookGenre.getValue()));
     }
     return genresReadCount;
   }

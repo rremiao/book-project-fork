@@ -54,14 +54,6 @@ class ShelfControllerTest {
   }
 
   @Test
-  void all_returnsEmptyList_whenNoShelvesExist() {
-    when(mockedPredefinedShelfService.findAllForLoggedInUser()).thenReturn(new ArrayList<>());
-    when(mockedUserCreatedShelfService.findAllForLoggedInUser()).thenReturn(new ArrayList<>());
-
-    assertThat(shelfController.all().size()).isZero();
-  }
-
-  @Test
   void all_returnsNonEmptyList_whenPredefinedShelvesExist() {
     // given
     List<PredefinedShelf> predefinedShelves = new ArrayList<>();

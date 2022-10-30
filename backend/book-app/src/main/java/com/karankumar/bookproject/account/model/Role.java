@@ -44,10 +44,10 @@ public class Role {
   @Setter(AccessLevel.NONE)
   private Long id;
 
-  @NotBlank private String role;
+  @NotBlank private String rolePlayed;
 
-  public Role(@NonNull String role) {
-    this.role = role;
+  public Role(@NonNull String rolePlayed) {
+    this.rolePlayed = rolePlayed;
   }
 
   @Override
@@ -55,11 +55,11 @@ public class Role {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     Role role1 = (Role) o;
-    return role.equals(role1.role);
+    return rolePlayed.equals(role1.rolePlayed);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(role);
+    return Objects.hash(rolePlayed);
   }
 }
